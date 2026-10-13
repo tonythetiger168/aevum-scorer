@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aevum-scorer"
+version = "0.1.1"
+description = "Quality scoring for AI-generated images: aesthetic + anomaly + alignment + artifact detection"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "Apache-2.0"}
+dependencies = ["numpy>=1.24", "Pillow>=10.0"]
+
+[project.optional-dependencies]
+full = ["torch>=2.0", "transformers>=4.40", "ultralytics>=8.0"]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+aevum-scorer = "aevum_scorer.cli:main"
+
+[project.urls]
+Homepage = "https://aevum.ai?utm_source=scorer"
+Repository = "https://github.com/aevum-ai/aevum-scorer"
+
+[tool.setuptools.packages.find]
+include = ["aevum_scorer*"]
